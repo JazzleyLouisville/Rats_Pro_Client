@@ -8,3 +8,6 @@ def log_info(info):
     log.basicConfig(level=log.INFO,
                     format="%(asctime)s [%(levelname)s] %(message)s")
     log.info(info)
+
+def save_csv(dataframe):
+    dataframe.to_csv(r'../client_data/filtered_client_data.csv')
