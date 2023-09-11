@@ -4,7 +4,7 @@ from utils import save_csv
 
 
 def main():
-    filtered_data = filter_client_details("../client_data/dataset_one.csv","../client_data/dataset_two.csv")
+    filtered_data = filter_client_details("../client_data/dataset_one.csv","../client_data/dataset_two.csv",["Netherlands","United Kingdom"])
     save_csv(filtered_data)
 
 
