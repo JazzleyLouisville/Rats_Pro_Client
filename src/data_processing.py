@@ -1,8 +1,19 @@
 import pandas as pd
 from utils import read_csv
 from utils import log_info
+from docstrings import merge_csv_docstring
 
 def filter_client_details(file_path_1,file_path_2,countries=["Netherlands","United Kingdom"]):
+    """
+    This function filters and merges two CSV files.
+
+    Args:
+        file_path_1 (str): Path to the first CSV file.
+        file_path_2 (str): Path to the second CSV file.
+        countries(List) : List of countries to filter on.   
+    Returns:
+        pandas Dataframe: A filtered and cleaned dataframe.
+    """
     dataFrame_1,dataFrame_2 = read_csv(file_path_1,file_path_2)
     filtered_df = clean_df(dataFrame_1,dataFrame_2,countries)
     return filtered_df

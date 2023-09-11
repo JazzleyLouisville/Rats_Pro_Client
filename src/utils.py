@@ -10,4 +10,13 @@ def log_info(info):
     log.info(info)
 
 def save_csv(dataframe):
+    """
+    This function saves a dataframe to a csv file.
+
+    Args:
+        dataframe (pandas dataframe): pandas dataframe variable.
+            
+    Returns:
+        void.
+    """
     dataframe.to_csv(r'../client_data/filtered_client_data.csv')
