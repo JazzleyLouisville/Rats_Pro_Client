@@ -21,8 +21,11 @@ def generate_client_data():
 def download_client_data():
     if request.method == 'GET':
         if os.path.isfile("../../client_data/filtered_client_data.csv"):
+            log_info("Info",f"Get request filtered_client_data")
             return send_file("../../client_data/filtered_client_data.csv")
         else:
+            current_dir = __file__
+            log_info("Error",f"No data filtered! --- Line 27 File {current_dir}")
             return jsonify("Error no data filtered!")
 
 if __name__ ==" __main__":
