@@ -24,8 +24,6 @@ def merge_df_id(dataFrame_1,dataFrame_2):
     return merged_df
 
 def clean_df(dataFrame_1,dataFrame_2,countries):
-    # print(countries)
-    # print("Unique countries in DataFrame:", dataFrame_1['country'].unique())
     dataFrame_1.drop(["first_name","last_name"],axis=1,inplace=True)
     dataFrame_2.drop("cc_n",axis=1,inplace=True)
     merged_df = merge_df_id(dataFrame_1,dataFrame_2)
