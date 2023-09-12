@@ -9,7 +9,7 @@ def log_info(info):
                     format="%(asctime)s [%(levelname)s] %(message)s")
     log.info(info)
 
-def save_csv(dataframe):
+def save_csv(dataframe,path):
     """
     This function saves a dataframe to a csv file.
 
@@ -19,4 +19,11 @@ def save_csv(dataframe):
     Returns:
         void.
     """
-    dataframe.to_csv(r'../client_data/filtered_client_data.csv')
+    # log_info("Errors before save")
+    if path == "main":
+        dataframe.to_csv(r'client_data/filtered_client_data.csv')
+    else:
+        log_info("IN else")
+        dataframe.to_csv(r'../../client_data/filtered_client_data.csv')
+
+    log_info("Errors after save")
