@@ -24,6 +24,6 @@ def save_csv(dataframe,path):
         dataframe.to_csv(r'client_data/filtered_client_data.csv')
     else:
         log_info("IN else")
-        dataframe.to_csv(r'../../client_data/test_filtered_client_data.csv')
+        dataframe.to_csv(r'../../client_data/filtered_client_data.csv')
 
     log_info("Errors after save")
