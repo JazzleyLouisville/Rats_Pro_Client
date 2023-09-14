@@ -31,7 +31,7 @@ pip install -r requirements.txt
 The application can be ran with the following command:
 
 ```
-python main.py --name_set_1 dataset_one.csv --name_set_1 dataset_two.csv --countries "UK,Netherlands"
+python main.py --name_set_1 dataset_one.csv --name_set_2 dataset_two.csv --countries "France,United Kingdom"
 ```
 
 As an added bonus, if you navigate towards the src/flask folder you can start up a flask server.
