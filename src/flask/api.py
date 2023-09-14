@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, send_file
 from ..data_processing import filter_client_details
-from ..utils import log_info, save_csv
+from ..utils import log_info, CsvHandler
 import os
 app = Flask(__name__)
 
@@ -14,7 +14,7 @@ def generate_client_data():
             countries = ['United States','United Kingdom','France','Netherlands']
         df_obj = filter_client_details("../../client_data/dataset_one.csv","../../client_data/dataset_two.csv",countries)
         group_by_id = df_obj.groupby('client_identifier').apply(lambda x: x.drop('client_identifier', axis=1).to_dict(orient='records')).reset_index(name='data_client')
-        save_csv(df_obj,"api")
+        CsvHandler.save_csv(df_obj,"api")
         return jsonify(group_by_id.to_dict(orient='records'))
 
 @app.route('/download_filtered_data',methods=['GET'])

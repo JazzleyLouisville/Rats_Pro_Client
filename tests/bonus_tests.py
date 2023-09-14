@@ -1,6 +1,6 @@
 import unittest
-from src.utils import read_csv
-from src.data_processing import clean_df , merge_df_id
+from src.utils import CsvHandler
+from src.data_processing import DataFrameHandler
 import pandas as pd
 
 
@@ -22,7 +22,7 @@ class Test(unittest.TestCase):
         self.df_2 = pd.DataFrame(data_2)
 
     def test_merge(self):
-        merged_df = merge_df_id(self.df_1,self.df_2)
+        merged_df = DataFrameHandler.merge_df_id(self.df_1,self.df_2)
         # Check if the result is a DataFrame
         self.assertIsInstance(merged_df, pd.DataFrame)
         
@@ -33,7 +33,7 @@ class Test(unittest.TestCase):
         self.assertTrue('id' in merged_df)
 
     def test_clean_df(self):
-        cleaned_df = clean_df(self.df_1,self.df_2,self.countries)
+        cleaned_df = DataFrameHandler.clean_df(self.df_1,self.df_2,self.countries)
         expected_cols = ['client_identifier','bitcoin_address','credit_card_type']
         
         # Check if the result is a DataFrame
