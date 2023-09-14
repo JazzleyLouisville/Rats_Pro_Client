@@ -2,8 +2,6 @@ import pandas as pd
 import logging as log
 from logging.handlers import RotatingFileHandler
 
-def read_csv(file_path_1,file_path_2):
-    return (pd.read_csv(file_path_1),pd.read_csv(file_path_2))
 
 def log_info(log_type,message):
     """
@@ -43,17 +41,23 @@ def log_info(log_type,message):
 
 
 
-def save_csv(dataframe,path):
-    """
-    This function saves a dataframe to a csv file.
 
-    Args:
-        dataframe (pandas dataframe): pandas dataframe variable.
-            
-    Returns:
-        void.
-    """
-    if path == "main":
-        dataframe.to_csv(r'client_data/filtered_client_data.csv')
-    else:
-        dataframe.to_csv(r'../../client_data/filtered_client_data.csv')
+
+class CsvHandler:
+    def save_csv(dataframe,path):
+        """
+        This function saves a dataframe to a csv file.
+
+        Args:
+            dataframe (pandas dataframe): pandas dataframe variable.
+                
+        Returns:
+            void.
+        """
+        if path == "main":
+            dataframe.to_csv(r'client_data/filtered_client_data.csv')
+        else:
+            dataframe.to_csv(r'../../client_data/filtered_client_data.csv')
+
+    def read_csv(file_path_1,file_path_2):
+        return (pd.read_csv(file_path_1),pd.read_csv(file_path_2))
